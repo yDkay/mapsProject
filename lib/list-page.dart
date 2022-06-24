@@ -16,7 +16,8 @@ class ListPageState extends State<ListPage> {
       return const Card(
         child: ListTile(
           leading: FlutterLogo(size: 56.0),
-          subtitle: Text(''),
+          title: Text('Googleplex'),
+          subtitle: Text('37.4218175, -122.0841106'),
           trailing: Icon(Icons.more_vert),
         ),
       );

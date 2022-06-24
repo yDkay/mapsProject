@@ -13,7 +13,7 @@ class MapPage extends StatefulWidget {
 
 class MapPageState extends State<MapPage> {
   late GoogleMapController mapController;
-  late LatLng center = const LatLng(-24.9555, -53.4552);
+  late LatLng center = const LatLng(37.4218175, -122.0841106);
   final _nameController = TextEditingController();
 
   Map<MarkerId, Marker> markers = <MarkerId, Marker>{};
@@ -47,7 +47,7 @@ class MapPageState extends State<MapPage> {
     final Marker marker = Marker(
       markerId: markerId,
       position: latLng,
-      infoWindow: InfoWindow(title: name, snippet: '*'),
+      infoWindow: InfoWindow(title: name, snippet: latLng.toString()),
       onTap: () {
         print('Clicou no marker: ' + name);
       },
@@ -76,6 +76,7 @@ class MapPageState extends State<MapPage> {
               autofocus: true,
               onPressed: () {
                 addMarker(_nameController.text, currentPosition);
+                print('Position certinha: $currentPosition');
                 _nameController.clear();
                 Navigator.of(context).pop();
               },
